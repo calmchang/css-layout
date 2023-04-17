@@ -14,13 +14,25 @@
 
     this.width = this.controlDom.cilentWidth;
     this.height = this.controlDom.clientHeight;
+    
+
 
     if(!domDrag){
       domDrag = document.createElement('div');
       domDrag.id='drag';
       domDrag.className='drag';
       domDrag.innerText = 'drag';
+
       controlDom.appendChild(domDrag);
+      const sizeListener=new ResizeObserver((items)=>{
+        if(!items||items.length<=0)return;
+        // items[0].target
+        //尺寸变化
+        let rect= this.controlDom.getBoundingClientRect();
+        domDrag.style.left= `${rect.right-20}px`;
+        domDrag.style.top= `${rect.bottom-20}px`;
+      })
+      sizeListener.observe(this.controlDom);//开始监听
     }
 
     let self=this;
