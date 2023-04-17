@@ -1,5 +1,6 @@
 
 (function(){
+  let END_LEVEL=9;
   window.addEventListener('load',function(){
     let search = location.search.split('?');
     let searchReq={};
@@ -28,7 +29,7 @@
     }else{
       html+= `<button id='prev' class="prev disabled">上一个</button>`
     }
-    if(curIndex<8){
+    if(curIndex<END_LEVEL){
       html+= `<button id='next' class="next">下一个</button>`
     }else{
       html+= `<button id='next' class="next disabled">下一个</button>`
@@ -46,7 +47,7 @@
 
     document.querySelector('#next').addEventListener('click',()=>{
       let index =curIndex+1;
-      if(index>8)return;
+      if(index>END_LEVEL)return;
       var url = location.href.replace(/(\d+)[.]html/,`${index}.html`);
       console.log(url);
       location.href=url;
