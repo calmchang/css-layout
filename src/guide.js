@@ -1,6 +1,6 @@
 
 (function(){
-  let END_LEVEL=9;
+  let END_LEVEL=10;
   window.addEventListener('load',function(){
     let search = location.search.split('?');
     let searchReq={};

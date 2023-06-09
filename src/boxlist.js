@@ -28,7 +28,7 @@
       var box = document.createElement('div');
       box.className='box';
       box.innerText = articleList.children.length+1;
-      let insertDom = articleList.children[articleList.children.length-2];
+      let insertDom = articleList.children[0];
       articleList.insertBefore(box,insertDom);
     })
 
